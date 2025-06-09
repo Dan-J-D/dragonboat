@@ -20,6 +20,7 @@ package config
 
 import (
 	"crypto/tls"
+	"crypto/x509"
 	"errors"
 	"io/ioutil"
 	"net"
@@ -29,8 +30,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/dan-j-d/goutils/netutil"
-	"github.com/dan-j-d/goutils/stringutil"
+	"github.com/lni/goutils/netutil"
+	"github.com/lni/goutils/stringutil"
 
 	"github.com/dan-j-d/dragonboat/v3/internal/id"
 	"github.com/dan-j-d/dragonboat/v3/internal/settings"
@@ -301,7 +302,7 @@ type NodeHostConfig struct {
 	// details on how to use Mutual TLS.
 	MutualTLS bool
 	// CertPool is the certificate pool used for verifying client/server certificates
-  	CertPool func() (*x509.CertPool, error)
+	CertPool func() (*x509.CertPool, error)
 	// CertFile is the path of the node certificate file. This field is ignored
 	// when MutualTLS is false.
 	CertFile string
@@ -516,12 +517,12 @@ func (c *NodeHostConfig) Validate() error {
 		return errors.New("NodeHostConfig.NodeHostDir is empty")
 	}
 	if !c.MutualTLS &&
-		(len(c.CAFile) > 0 || len(c.CertFile) > 0 || len(c.KeyFile) > 0) {
-		plog.Warningf("CAFile/CertFile/KeyFile specified when MutualTLS is disabled")
+		(c.CertPool != nil || len(c.CertFile) > 0 || len(c.KeyFile) > 0) {
+		plog.Warningf("CertPool/CertFile/KeyFile specified when MutualTLS is disabled")
 	}
 	if c.MutualTLS {
-		if len(c.CAFile) == 0 {
-			return errors.New("CA file not specified")
+		if c.CertPool == nil {
+			return errors.New("CertPool not specified")
 		}
 		if len(c.CertFile) == 0 {
 			return errors.New("cert file not specified")
@@ -657,23 +658,23 @@ func (c *NodeHostConfig) GetListenAddress() string {
 // TLS settings in NodeHostConfig.
 func (c *NodeHostConfig) GetServerTLSConfig() (*tls.Config, error) {
 	if c.MutualTLS {
-		certificate, err := tls.LoadX509KeyPair(certFile, keyFile)
-  		if err != nil {
-  			return nil, err
-  		}
+		certificate, err := tls.LoadX509KeyPair(c.CertFile, c.KeyFile)
+		if err != nil {
+			return nil, err
+		}
 
 		certPool, err := c.CertPool()
 		if err != nil {
 			return nil, err
 		}
 
-  		tlsConfig := &tls.Config{
-  			ClientAuth:   tls.RequireAndVerifyClientCert,
-  			Certificates: []tls.Certificate{certificate},
-  			ClientCAs:    certPool,
-  		}
-  
-  		return tlsConfig, nil
+		tlsConfig := &tls.Config{
+			ClientAuth:   tls.RequireAndVerifyClientCert,
+			Certificates: []tls.Certificate{certificate},
+			ClientCAs:    certPool,
+		}
+
+		return tlsConfig, nil
 	}
 	return nil, nil
 }
@@ -682,22 +683,27 @@ func (c *NodeHostConfig) GetServerTLSConfig() (*tls.Config, error) {
 // target based on the TLS settings in NodeHostConfig.
 func (c *NodeHostConfig) GetClientTLSConfig(target string) (*tls.Config, error) {
 	if c.MutualTLS {
-		certificate, err := tls.LoadX509KeyPair(certFile, keyFile)
-  		if err != nil {
-  			return nil, err
-  		}
-  		
+		certificate, err := tls.LoadX509KeyPair(c.CertFile, c.KeyFile)
+		if err != nil {
+			return nil, err
+		}
+
 		certPool, err := c.CertPool()
 		if err != nil {
 			return nil, err
 		}
 
+		hostname, err := netutil.GetHost(target)
+		if err != nil {
+			return nil, err
+		}
+
 		tlsConfig := &tls.Config{
-  			ServerName:   hostname,
-  			Certificates: []tls.Certificate{certificate},
-  			RootCAs:      certPool,
-  		}
-		
+			ServerName:   hostname,
+			Certificates: []tls.Certificate{certificate},
+			RootCAs:      certPool,
+		}
+
 		if err != nil {
 			return nil, err
 		}

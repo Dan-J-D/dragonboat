@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/dan-j-d/goutils/logutil"
+	"github.com/lni/goutils/logutil"
 
 	"github.com/dan-j-d/dragonboat/v3/config"
 	"github.com/dan-j-d/dragonboat/v3/internal/server"

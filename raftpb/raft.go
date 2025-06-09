@@ -20,7 +20,7 @@ import (
 	"strings"
 	"unsafe"
 
-	"github.com/dan-j-d/goutils/stringutil"
+	"github.com/lni/goutils/stringutil"
 
 	"github.com/dan-j-d/dragonboat/v3/client"
 	"github.com/dan-j-d/dragonboat/v3/internal/settings"

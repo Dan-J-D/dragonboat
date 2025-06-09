@@ -20,7 +20,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/dan-j-d/goutils/logutil"
+	"github.com/lni/goutils/logutil"
 
 	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
 )

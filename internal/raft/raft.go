@@ -26,8 +26,8 @@ import (
 	"math"
 	"sort"
 
-	"github.com/dan-j-d/goutils/logutil"
-	"github.com/dan-j-d/goutils/random"
+	"github.com/lni/goutils/logutil"
+	"github.com/lni/goutils/random"
 
 	"github.com/dan-j-d/dragonboat/v3/config"
 	"github.com/dan-j-d/dragonboat/v3/internal/server"
@@ -1251,7 +1251,6 @@ func (r *raft) setWitness(nodeID uint64, match uint64, next uint64) {
 	}
 }
 
-//
 // helper methods required for the membership change implementation
 //
 // p33-35 of the raft thesis describes a simple membership change protocol which
@@ -1280,7 +1279,6 @@ func (r *raft) setWitness(nodeID uint64, match uint64, next uint64) {
 // we use the following pendingConfigChange flag to help tracking whether there
 // is already a pending membership change entry in the log waiting to be
 // executed.
-//
 func (r *raft) setPendingConfigChange() {
 	r.pendingConfigChange = true
 }

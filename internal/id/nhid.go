@@ -21,7 +21,7 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/dan-j-d/goutils/random"
+	"github.com/lni/goutils/random"
 )
 
 var (

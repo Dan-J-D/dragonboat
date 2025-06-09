@@ -27,9 +27,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dan-j-d/goutils/leaktest"
-	"github.com/dan-j-d/goutils/netutil"
-	"github.com/dan-j-d/goutils/syncutil"
+	"github.com/lni/goutils/leaktest"
+	"github.com/lni/goutils/netutil"
+	"github.com/lni/goutils/syncutil"
 
 	"github.com/dan-j-d/dragonboat/v3/config"
 	"github.com/dan-j-d/dragonboat/v3/internal/rsm"

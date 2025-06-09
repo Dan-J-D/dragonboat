@@ -23,7 +23,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dan-j-d/goutils/leaktest"
+	"github.com/lni/goutils/leaktest"
 
 	"github.com/dan-j-d/dragonboat/v3/config"
 	"github.com/dan-j-d/dragonboat/v3/internal/logdb/kv"

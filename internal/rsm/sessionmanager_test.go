@@ -18,7 +18,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/dan-j-d/goutils/cache"
+	"github.com/lni/goutils/cache"
 
 	sm "github.com/dan-j-d/dragonboat/v3/statemachine"
 )

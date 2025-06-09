@@ -21,7 +21,7 @@ import (
 	"io"
 	"sync"
 
-	"github.com/dan-j-d/goutils/cache"
+	"github.com/lni/goutils/cache"
 
 	"github.com/dan-j-d/dragonboat/v3/internal/settings"
 )

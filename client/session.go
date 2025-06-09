@@ -17,7 +17,7 @@ package client
 import (
 	"math"
 
-	"github.com/dan-j-d/goutils/random"
+	"github.com/lni/goutils/random"
 )
 
 const (

@@ -20,7 +20,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/memberlist"
-	"github.com/dan-j-d/goutils/syncutil"
+	"github.com/lni/goutils/syncutil"
 
 	"github.com/dan-j-d/dragonboat/v3/config"
 )

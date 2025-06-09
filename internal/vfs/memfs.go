@@ -12,12 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//go:build dragonboat_memfs_test
 // +build dragonboat_memfs_test
 
 package vfs
 
 import (
-	gvfs "github.com/dan-j-d/goutils/vfs"
+	gvfs "github.com/lni/goutils/vfs"
 )
 
 func GetFS() IFS {

@@ -21,7 +21,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/dan-j-d/goutils/random"
+	"github.com/lni/goutils/random"
 
 	"github.com/dan-j-d/dragonboat/v3/config"
 	"github.com/dan-j-d/dragonboat/v3/internal/fileutil"
