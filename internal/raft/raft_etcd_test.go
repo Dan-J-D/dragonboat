@@ -34,9 +34,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/lni/dragonboat/v3/config"
-	"github.com/lni/dragonboat/v3/internal/server"
-	pb "github.com/lni/dragonboat/v3/raftpb"
+	"github.com/dan-j-d/dragonboat/v3/config"
+	"github.com/dan-j-d/dragonboat/v3/internal/server"
+	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
 )
 
 var (

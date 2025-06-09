@@ -26,14 +26,14 @@ import (
 	"math"
 	"sort"
 
-	"github.com/lni/goutils/logutil"
-	"github.com/lni/goutils/random"
+	"github.com/dan-j-d/goutils/logutil"
+	"github.com/dan-j-d/goutils/random"
 
-	"github.com/lni/dragonboat/v3/config"
-	"github.com/lni/dragonboat/v3/internal/server"
-	"github.com/lni/dragonboat/v3/internal/settings"
-	"github.com/lni/dragonboat/v3/logger"
-	pb "github.com/lni/dragonboat/v3/raftpb"
+	"github.com/dan-j-d/dragonboat/v3/config"
+	"github.com/dan-j-d/dragonboat/v3/internal/server"
+	"github.com/dan-j-d/dragonboat/v3/internal/settings"
+	"github.com/dan-j-d/dragonboat/v3/logger"
+	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
 )
 
 var (

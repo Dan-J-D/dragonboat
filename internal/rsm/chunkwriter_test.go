@@ -19,8 +19,8 @@ import (
 	"encoding/binary"
 	"testing"
 
-	pb "github.com/lni/dragonboat/v3/raftpb"
-	sm "github.com/lni/dragonboat/v3/statemachine"
+	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
+	sm "github.com/dan-j-d/dragonboat/v3/statemachine"
 )
 
 type testSink struct {

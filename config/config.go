@@ -29,15 +29,15 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/lni/goutils/netutil"
-	"github.com/lni/goutils/stringutil"
+	"github.com/dan-j-d/goutils/netutil"
+	"github.com/dan-j-d/goutils/stringutil"
 
-	"github.com/lni/dragonboat/v3/internal/id"
-	"github.com/lni/dragonboat/v3/internal/settings"
-	"github.com/lni/dragonboat/v3/internal/vfs"
-	"github.com/lni/dragonboat/v3/logger"
-	"github.com/lni/dragonboat/v3/raftio"
-	pb "github.com/lni/dragonboat/v3/raftpb"
+	"github.com/dan-j-d/dragonboat/v3/internal/id"
+	"github.com/dan-j-d/dragonboat/v3/internal/settings"
+	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
+	"github.com/dan-j-d/dragonboat/v3/logger"
+	"github.com/dan-j-d/dragonboat/v3/raftio"
+	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
 )
 
 var (
@@ -667,13 +667,13 @@ func (c *NodeHostConfig) GetServerTLSConfig() (*tls.Config, error) {
 			return nil, err
 		}
 
-    tlsConfig := &tls.Config{
-      ClientAuth:   tls.RequireAndVerifyClientCert,
-      Certificates: []tls.Certificate{certificate},
-      ClientCAs:    certPool,
-    }
+  		tlsConfig := &tls.Config{
+  			ClientAuth:   tls.RequireAndVerifyClientCert,
+  			Certificates: []tls.Certificate{certificate},
+  			ClientCAs:    certPool,
+  		}
   
-  	return tlsConfig, nil
+  		return tlsConfig, nil
 	}
 	return nil, nil
 }
@@ -693,10 +693,10 @@ func (c *NodeHostConfig) GetClientTLSConfig(target string) (*tls.Config, error) 
 		}
 
 		tlsConfig := &tls.Config{
-      ServerName:   hostname,
-      Certificates: []tls.Certificate{certificate},
-      RootCAs:      certPool,
-    }
+  			ServerName:   hostname,
+  			Certificates: []tls.Certificate{certificate},
+  			RootCAs:      certPool,
+  		}
 		
 		if err != nil {
 			return nil, err

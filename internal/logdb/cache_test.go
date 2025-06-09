@@ -18,8 +18,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/lni/dragonboat/v3/raftio"
-	pb "github.com/lni/dragonboat/v3/raftpb"
+	"github.com/dan-j-d/dragonboat/v3/raftio"
+	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
 )
 
 func TestCachedNodeInfoCanBeSet(t *testing.T) {
