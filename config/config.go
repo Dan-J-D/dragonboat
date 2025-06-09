@@ -301,7 +301,7 @@ type NodeHostConfig struct {
 	// details on how to use Mutual TLS.
 	MutualTLS bool
 	// CertPool is the certificate pool used for verifying client/server certificates
-  	CertPool func() (*x509.CertPool, error)
+  CertPool func() (*x509.CertPool, error)
 	// CertFile is the path of the node certificate file. This field is ignored
 	// when MutualTLS is false.
 	CertFile string
