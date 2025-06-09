@@ -301,7 +301,7 @@ type NodeHostConfig struct {
 	// details on how to use Mutual TLS.
 	MutualTLS bool
 	// CertPool is the certificate pool used for verifying client/server certificates
-  	CertPool *x509.CertPool
+  CertPool func() (*x509.CertPool, error)
 	// CertFile is the path of the node certificate file. This field is ignored
 	// when MutualTLS is false.
 	CertFile string
@@ -662,13 +662,18 @@ func (c *NodeHostConfig) GetServerTLSConfig() (*tls.Config, error) {
   			return nil, err
   		}
 
-  		tlsConfig := &tls.Config{
-  			ClientAuth:   tls.RequireAndVerifyClientCert,
-  			Certificates: []tls.Certificate{certificate},
-  			ClientCAs:    c.CertPool,
-  		}
+		certPool, err := c.CertPool()
+		if err != nil {
+			return nil, err
+		}
+
+    tlsConfig := &tls.Config{
+      ClientAuth:   tls.RequireAndVerifyClientCert,
+      Certificates: []tls.Certificate{certificate},
+      ClientCAs:    certPool,
+    }
   
-  		return tlsConfig, nil
+  	return tlsConfig, nil
 	}
 	return nil, nil
 }
@@ -682,11 +687,16 @@ func (c *NodeHostConfig) GetClientTLSConfig(target string) (*tls.Config, error) 
   			return nil, err
   		}
   		
+		certPool, err := c.CertPool()
+		if err != nil {
+			return nil, err
+		}
+
 		tlsConfig := &tls.Config{
-  			ServerName:   hostname,
-  			Certificates: []tls.Certificate{certificate},
-  			RootCAs:      c.CertPool,
-  		}
+      ServerName:   hostname,
+      Certificates: []tls.Certificate{certificate},
+      RootCAs:      certPool,
+    }
 		
 		if err != nil {
 			return nil, err
