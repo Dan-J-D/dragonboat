@@ -300,9 +300,8 @@ type NodeHostConfig struct {
 	// See https://github.com/lni/dragonboat/wiki/TLS-in-Dragonboat for more
 	// details on how to use Mutual TLS.
 	MutualTLS bool
-	// CAFile is the path of the CA certificate file. This field is ignored when
-	// MutualTLS is false.
-	CAFile string
+	// CertPool is the certificate pool used for verifying client/server certificates
+  	CertPool func() (*x509.CertPool, error)
 	// CertFile is the path of the node certificate file. This field is ignored
 	// when MutualTLS is false.
 	CertFile string
@@ -658,7 +657,23 @@ func (c *NodeHostConfig) GetListenAddress() string {
 // TLS settings in NodeHostConfig.
 func (c *NodeHostConfig) GetServerTLSConfig() (*tls.Config, error) {
 	if c.MutualTLS {
-		return netutil.GetServerTLSConfig(c.CAFile, c.CertFile, c.KeyFile)
+		certificate, err := tls.LoadX509KeyPair(certFile, keyFile)
+  		if err != nil {
+  			return nil, err
+  		}
+
+		certPool, err := c.CertPool()
+		if err != nil {
+			return nil, err
+		}
+
+  		tlsConfig := &tls.Config{
+  			ClientAuth:   tls.RequireAndVerifyClientCert,
+  			Certificates: []tls.Certificate{certificate},
+  			ClientCAs:    certPool,
+  		}
+  
+  		return tlsConfig, nil
 	}
 	return nil, nil
 }
@@ -667,8 +682,22 @@ func (c *NodeHostConfig) GetServerTLSConfig() (*tls.Config, error) {
 // target based on the TLS settings in NodeHostConfig.
 func (c *NodeHostConfig) GetClientTLSConfig(target string) (*tls.Config, error) {
 	if c.MutualTLS {
-		tlsConfig, err := netutil.GetClientTLSConfig("",
-			c.CAFile, c.CertFile, c.KeyFile)
+		certificate, err := tls.LoadX509KeyPair(certFile, keyFile)
+  		if err != nil {
+  			return nil, err
+  		}
+  		
+		certPool, err := c.CertPool()
+		if err != nil {
+			return nil, err
+		}
+
+		tlsConfig := &tls.Config{
+  			ServerName:   hostname,
+  			Certificates: []tls.Certificate{certificate},
+  			RootCAs:      certPool,
+  		}
+		
 		if err != nil {
 			return nil, err
 		}
