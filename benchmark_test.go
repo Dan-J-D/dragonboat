@@ -22,7 +22,7 @@ import (
 	"testing"
 
 	"github.com/golang/snappy"
-	"github.com/lni/goutils/random"
+	"github.com/dan-j-d/goutils/random"
 
 	"github.com/dan-j-d/dragonboat/v3/client"
 	"github.com/dan-j-d/dragonboat/v3/config"

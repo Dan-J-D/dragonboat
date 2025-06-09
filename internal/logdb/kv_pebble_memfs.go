@@ -22,7 +22,7 @@ import (
 	"github.com/dan-j-d/dragonboat/v3/internal/logdb/kv/pebble"
 	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
 
-	gvfs "github.com/lni/goutils/vfs"
+	gvfs "github.com/dan-j-d/goutils/vfs"
 )
 
 const (

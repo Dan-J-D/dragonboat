@@ -92,8 +92,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/lni/goutils/logutil"
-	"github.com/lni/goutils/syncutil"
+	"github.com/dan-j-d/goutils/logutil"
+	"github.com/dan-j-d/goutils/syncutil"
 
 	"github.com/dan-j-d/dragonboat/v3/client"
 	"github.com/dan-j-d/dragonboat/v3/config"
@@ -116,7 +116,7 @@ const (
 	// DragonboatMinor is the minor version number
 	DragonboatMinor = 3
 	// DragonboatPatch is the patch version number
-	DragonboatPatch = 5
+	DragonboatPatch = 8
 	// DEVVersion is a boolean flag indicating whether this is a dev version
 	DEVVersion = false
 )

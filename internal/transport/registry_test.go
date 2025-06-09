@@ -17,7 +17,7 @@ package transport
 import (
 	"testing"
 
-	"github.com/lni/goutils/stringutil"
+	"github.com/dan-j-d/goutils/stringutil"
 
 	"github.com/dan-j-d/dragonboat/v3/internal/settings"
 )

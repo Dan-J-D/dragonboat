@@ -18,7 +18,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/lni/goutils/random"
+	"github.com/dan-j-d/goutils/random"
 
 	"github.com/dan-j-d/dragonboat/v3/internal/rsm"
 	pb "github.com/dan-j-d/dragonboat/v3/raftpb"

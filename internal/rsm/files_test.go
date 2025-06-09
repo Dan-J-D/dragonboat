@@ -17,7 +17,7 @@ package rsm
 import (
 	"testing"
 
-	"github.com/lni/goutils/leaktest"
+	"github.com/dan-j-d/goutils/leaktest"
 
 	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
 )

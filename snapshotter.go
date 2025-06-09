@@ -18,7 +18,7 @@ import (
 	"errors"
 	"math"
 
-	"github.com/lni/goutils/logutil"
+	"github.com/dan-j-d/goutils/logutil"
 
 	"github.com/dan-j-d/dragonboat/v3/internal/fileutil"
 	"github.com/dan-j-d/dragonboat/v3/internal/rsm"

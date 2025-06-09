@@ -15,7 +15,7 @@
 package logger
 
 import (
-	"github.com/lni/goutils/logutil/capnslog"
+	"github.com/dan-j-d/goutils/logutil/capnslog"
 )
 
 const (

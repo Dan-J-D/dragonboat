@@ -20,7 +20,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/lni/goutils/logutil"
+	"github.com/dan-j-d/goutils/logutil"
 
 	"github.com/cockroachdb/errors"
 	"github.com/dan-j-d/dragonboat/v3/internal/fileutil"
