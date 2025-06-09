@@ -20,16 +20,16 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/lni/goutils/logutil"
+	"github.com/dan-j-d/goutils/logutil"
 
 	"github.com/cockroachdb/errors"
-	"github.com/lni/dragonboat/v3/internal/fileutil"
-	"github.com/lni/dragonboat/v3/internal/rsm"
-	"github.com/lni/dragonboat/v3/internal/server"
-	"github.com/lni/dragonboat/v3/internal/settings"
-	"github.com/lni/dragonboat/v3/internal/vfs"
-	"github.com/lni/dragonboat/v3/raftio"
-	pb "github.com/lni/dragonboat/v3/raftpb"
+	"github.com/dan-j-d/dragonboat/v3/internal/fileutil"
+	"github.com/dan-j-d/dragonboat/v3/internal/rsm"
+	"github.com/dan-j-d/dragonboat/v3/internal/server"
+	"github.com/dan-j-d/dragonboat/v3/internal/settings"
+	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
+	"github.com/dan-j-d/dragonboat/v3/raftio"
+	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
 )
 
 var (

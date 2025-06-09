@@ -19,11 +19,11 @@ import (
 	"io"
 	"time"
 
-	"github.com/lni/dragonboat/v3/internal/server"
-	"github.com/lni/dragonboat/v3/internal/settings"
-	"github.com/lni/dragonboat/v3/raftio"
-	pb "github.com/lni/dragonboat/v3/raftpb"
-	sm "github.com/lni/dragonboat/v3/statemachine"
+	"github.com/dan-j-d/dragonboat/v3/internal/server"
+	"github.com/dan-j-d/dragonboat/v3/internal/settings"
+	"github.com/dan-j-d/dragonboat/v3/raftio"
+	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
+	sm "github.com/dan-j-d/dragonboat/v3/statemachine"
 )
 
 const (

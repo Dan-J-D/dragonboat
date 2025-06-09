@@ -17,7 +17,7 @@ package client
 import (
 	"testing"
 
-	"github.com/lni/goutils/random"
+	"github.com/dan-j-d/goutils/random"
 )
 
 func TestNoOPSessionHasExpectedSeriesID(t *testing.T) {
