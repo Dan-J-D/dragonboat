@@ -300,9 +300,8 @@ type NodeHostConfig struct {
 	// See https://github.com/lni/dragonboat/wiki/TLS-in-Dragonboat for more
 	// details on how to use Mutual TLS.
 	MutualTLS bool
-	// CAFile is the path of the CA certificate file. This field is ignored when
-	// MutualTLS is false.
-	CAFile string
+	// CertPool is the certificate pool used for verifying client/server certificates
+  	CertPool func() (*x509.CertPool, error)
 	// CertFile is the path of the node certificate file. This field is ignored
 	// when MutualTLS is false.
 	CertFile string
