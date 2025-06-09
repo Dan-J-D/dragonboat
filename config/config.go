@@ -29,15 +29,15 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/lni/goutils/netutil"
-	"github.com/lni/goutils/stringutil"
+	"github.com/dan-j-d/goutils/netutil"
+	"github.com/dan-j-d/goutils/stringutil"
 
-	"github.com/lni/dragonboat/v3/internal/id"
-	"github.com/lni/dragonboat/v3/internal/settings"
-	"github.com/lni/dragonboat/v3/internal/vfs"
-	"github.com/lni/dragonboat/v3/logger"
-	"github.com/lni/dragonboat/v3/raftio"
-	pb "github.com/lni/dragonboat/v3/raftpb"
+	"github.com/dan-j-d/dragonboat/v3/internal/id"
+	"github.com/dan-j-d/dragonboat/v3/internal/settings"
+	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
+	"github.com/dan-j-d/dragonboat/v3/logger"
+	"github.com/dan-j-d/dragonboat/v3/raftio"
+	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
 )
 
 var (
@@ -657,7 +657,23 @@ func (c *NodeHostConfig) GetListenAddress() string {
 // TLS settings in NodeHostConfig.
 func (c *NodeHostConfig) GetServerTLSConfig() (*tls.Config, error) {
 	if c.MutualTLS {
-		return netutil.GetServerTLSConfig(c.CAFile, c.CertFile, c.KeyFile)
+		certificate, err := tls.LoadX509KeyPair(certFile, keyFile)
+  		if err != nil {
+  			return nil, err
+  		}
+
+		certPool, err := c.CertPool()
+		if err != nil {
+			return nil, err
+		}
+
+  		tlsConfig := &tls.Config{
+  			ClientAuth:   tls.RequireAndVerifyClientCert,
+  			Certificates: []tls.Certificate{certificate},
+  			ClientCAs:    certPool,
+  		}
+  
+  		return tlsConfig, nil
 	}
 	return nil, nil
 }
@@ -666,8 +682,22 @@ func (c *NodeHostConfig) GetServerTLSConfig() (*tls.Config, error) {
 // target based on the TLS settings in NodeHostConfig.
 func (c *NodeHostConfig) GetClientTLSConfig(target string) (*tls.Config, error) {
 	if c.MutualTLS {
-		tlsConfig, err := netutil.GetClientTLSConfig("",
-			c.CAFile, c.CertFile, c.KeyFile)
+		certificate, err := tls.LoadX509KeyPair(certFile, keyFile)
+  		if err != nil {
+  			return nil, err
+  		}
+  		
+		certPool, err := c.CertPool()
+		if err != nil {
+			return nil, err
+		}
+
+		tlsConfig := &tls.Config{
+  			ServerName:   hostname,
+  			Certificates: []tls.Certificate{certificate},
+  			RootCAs:      certPool,
+  		}
+		
 		if err != nil {
 			return nil, err
 		}

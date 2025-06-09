@@ -17,12 +17,12 @@
 package logdb
 
 import (
-	"github.com/lni/dragonboat/v3/config"
-	"github.com/lni/dragonboat/v3/internal/logdb/kv"
-	"github.com/lni/dragonboat/v3/internal/logdb/kv/pebble"
-	"github.com/lni/dragonboat/v3/internal/vfs"
+	"github.com/dan-j-d/dragonboat/v3/config"
+	"github.com/dan-j-d/dragonboat/v3/internal/logdb/kv"
+	"github.com/dan-j-d/dragonboat/v3/internal/logdb/kv/pebble"
+	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
 
-	gvfs "github.com/lni/goutils/vfs"
+	gvfs "github.com/dan-j-d/goutils/vfs"
 )
 
 const (

@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/lni/dragonboat/v3/config"
-	pb "github.com/lni/dragonboat/v3/raftpb"
-	sm "github.com/lni/dragonboat/v3/statemachine"
+	"github.com/dan-j-d/dragonboat/v3/config"
+	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
+	sm "github.com/dan-j-d/dragonboat/v3/statemachine"
 )
 
 func init() {

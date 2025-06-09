@@ -92,22 +92,22 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/lni/goutils/logutil"
-	"github.com/lni/goutils/syncutil"
+	"github.com/dan-j-d/goutils/logutil"
+	"github.com/dan-j-d/goutils/syncutil"
 
-	"github.com/lni/dragonboat/v3/client"
-	"github.com/lni/dragonboat/v3/config"
-	"github.com/lni/dragonboat/v3/internal/id"
-	"github.com/lni/dragonboat/v3/internal/invariants"
-	"github.com/lni/dragonboat/v3/internal/logdb"
-	"github.com/lni/dragonboat/v3/internal/rsm"
-	"github.com/lni/dragonboat/v3/internal/server"
-	"github.com/lni/dragonboat/v3/internal/settings"
-	"github.com/lni/dragonboat/v3/internal/transport"
-	"github.com/lni/dragonboat/v3/internal/vfs"
-	"github.com/lni/dragonboat/v3/raftio"
-	pb "github.com/lni/dragonboat/v3/raftpb"
-	sm "github.com/lni/dragonboat/v3/statemachine"
+	"github.com/dan-j-d/dragonboat/v3/client"
+	"github.com/dan-j-d/dragonboat/v3/config"
+	"github.com/dan-j-d/dragonboat/v3/internal/id"
+	"github.com/dan-j-d/dragonboat/v3/internal/invariants"
+	"github.com/dan-j-d/dragonboat/v3/internal/logdb"
+	"github.com/dan-j-d/dragonboat/v3/internal/rsm"
+	"github.com/dan-j-d/dragonboat/v3/internal/server"
+	"github.com/dan-j-d/dragonboat/v3/internal/settings"
+	"github.com/dan-j-d/dragonboat/v3/internal/transport"
+	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
+	"github.com/dan-j-d/dragonboat/v3/raftio"
+	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
+	sm "github.com/dan-j-d/dragonboat/v3/statemachine"
 )
 
 const (
@@ -116,7 +116,7 @@ const (
 	// DragonboatMinor is the minor version number
 	DragonboatMinor = 3
 	// DragonboatPatch is the patch version number
-	DragonboatPatch = 5
+	DragonboatPatch = 8
 	// DEVVersion is a boolean flag indicating whether this is a dev version
 	DEVVersion = false
 )

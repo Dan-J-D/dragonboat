@@ -21,11 +21,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/lni/goutils/stringutil"
+	"github.com/dan-j-d/goutils/stringutil"
 
-	"github.com/lni/dragonboat/v3/config"
-	"github.com/lni/dragonboat/v3/raftio"
-	"github.com/lni/dragonboat/v3/raftpb"
+	"github.com/dan-j-d/dragonboat/v3/config"
+	"github.com/dan-j-d/dragonboat/v3/raftio"
+	"github.com/dan-j-d/dragonboat/v3/raftpb"
 )
 
 var (

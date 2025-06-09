@@ -19,12 +19,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/lni/dragonboat/v3/config"
-	"github.com/lni/dragonboat/v3/internal/fileutil"
-	"github.com/lni/dragonboat/v3/internal/settings"
-	"github.com/lni/dragonboat/v3/internal/vfs"
-	"github.com/lni/dragonboat/v3/raftio"
-	"github.com/lni/dragonboat/v3/raftpb"
+	"github.com/dan-j-d/dragonboat/v3/config"
+	"github.com/dan-j-d/dragonboat/v3/internal/fileutil"
+	"github.com/dan-j-d/dragonboat/v3/internal/settings"
+	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
+	"github.com/dan-j-d/dragonboat/v3/raftio"
+	"github.com/dan-j-d/dragonboat/v3/raftpb"
 )
 
 const (
