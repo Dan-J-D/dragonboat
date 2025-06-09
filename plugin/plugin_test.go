@@ -18,10 +18,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/lni/dragonboat/v3"
-	"github.com/lni/dragonboat/v3/config"
-	"github.com/lni/dragonboat/v3/internal/vfs"
-	"github.com/lni/dragonboat/v3/plugin/rocksdb"
+	"github.com/dan-j-d/dragonboat/v3"
+	"github.com/dan-j-d/dragonboat/v3/config"
+	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
+	"github.com/dan-j-d/dragonboat/v3/plugin/rocksdb"
 )
 
 var (

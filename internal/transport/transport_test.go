@@ -27,17 +27,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/lni/goutils/leaktest"
-	"github.com/lni/goutils/netutil"
-	"github.com/lni/goutils/syncutil"
+	"github.com/dan-j-d/goutils/leaktest"
+	"github.com/dan-j-d/goutils/netutil"
+	"github.com/dan-j-d/goutils/syncutil"
 
-	"github.com/lni/dragonboat/v3/config"
-	"github.com/lni/dragonboat/v3/internal/rsm"
-	"github.com/lni/dragonboat/v3/internal/server"
-	"github.com/lni/dragonboat/v3/internal/settings"
-	"github.com/lni/dragonboat/v3/internal/vfs"
-	"github.com/lni/dragonboat/v3/raftio"
-	"github.com/lni/dragonboat/v3/raftpb"
+	"github.com/dan-j-d/dragonboat/v3/config"
+	"github.com/dan-j-d/dragonboat/v3/internal/rsm"
+	"github.com/dan-j-d/dragonboat/v3/internal/server"
+	"github.com/dan-j-d/dragonboat/v3/internal/settings"
+	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
+	"github.com/dan-j-d/dragonboat/v3/raftio"
+	"github.com/dan-j-d/dragonboat/v3/raftpb"
 )
 
 var serverAddress = fmt.Sprintf("localhost:%d", getTestPort())

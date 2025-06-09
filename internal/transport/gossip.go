@@ -20,9 +20,9 @@ import (
 	"time"
 
 	"github.com/hashicorp/memberlist"
-	"github.com/lni/goutils/syncutil"
+	"github.com/dan-j-d/goutils/syncutil"
 
-	"github.com/lni/dragonboat/v3/config"
+	"github.com/dan-j-d/dragonboat/v3/config"
 )
 
 // NodeHostIDRegistry is a node registry backed by gossip. It is capable of
