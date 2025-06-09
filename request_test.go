@@ -26,7 +26,7 @@ import (
 	"github.com/dan-j-d/dragonboat/v3/internal/rsm"
 	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
 	sm "github.com/dan-j-d/dragonboat/v3/statemachine"
-	"github.com/dan-j-d/goutils/random"
+	"github.com/lni/goutils/random"
 )
 
 func TestIsTempError(t *testing.T) {

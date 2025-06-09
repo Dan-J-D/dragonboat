@@ -19,7 +19,7 @@ import (
 	"testing"
 
 	"github.com/dan-j-d/dragonboat/v3/raftio"
-	"github.com/dan-j-d/goutils/leaktest"
+	"github.com/lni/goutils/leaktest"
 )
 
 func TestCompactionTaskCanBeCreated(t *testing.T) {
