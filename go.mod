@@ -1,4 +1,4 @@
-module github.com/lni/dragonboat/v3
+module github.com/dan-j-d/dragonboat/v3
 
 require (
 	github.com/VictoriaMetrics/metrics v1.6.2
@@ -14,4 +14,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-go 1.14
+go 1.24.4
