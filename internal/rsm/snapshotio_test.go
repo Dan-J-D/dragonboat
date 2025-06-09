@@ -23,7 +23,7 @@ import (
 
 	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
 	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
-	gvfs "github.com/dan-j-d/goutils/vfs"
+	gvfs "github.com/lni/goutils/vfs"
 )
 
 const (

@@ -23,7 +23,7 @@ import (
 	"github.com/dan-j-d/dragonboat/v3/internal/vfs"
 	"github.com/dan-j-d/dragonboat/v3/raftio"
 	pb "github.com/dan-j-d/dragonboat/v3/raftpb"
-	"github.com/dan-j-d/goutils/leaktest"
+	"github.com/lni/goutils/leaktest"
 )
 
 // most tests below are ported from etcd rafts
